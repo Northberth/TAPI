@@ -4,9 +4,18 @@ import {getCourse, getStudent} from "../dataGen/generator.js";
 export const studentsRouter = express.Router();
 
 
-studentsRouter.get('/:id',(req,res) => {
+/*studentsRouter.get('/:id',(req,res) => {
     res.send(getStudent(req.params.id));
 }).get(':id/schedule', (req,res) => {
     res.send(getCourse(req.params.id));
-});
-    
+});*/
+
+studentsRouter.get('/:id',(req,res) => {
+    client.GetStudent({studentId: "1"},(err, response) => {
+        if ( err !== null){
+            console.error(err);
+        }
+    })
+    res.send(response)
+})
+
