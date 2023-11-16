@@ -11,6 +11,18 @@ export const studentsRouter = express.Router();
 });*/
 
 studentsRouter.get('/:id',(req,res) => {
+    // #swagger.tags = ['Students']
+     /* #swagger.responses[200] = {
+            description: "Some description...",
+            content: {
+                "application/json": {
+                    schema:{
+                        $ref: "#/components/schemas/Student"
+                    }
+                }           
+            }
+        }   
+    */
     client.GetStudent({studentId: "1"},(err, response) => {
         if ( err !== null){
             console.error(err);
